@@ -1,43 +1,47 @@
-# Astro Starter Kit: Minimal
+# 🎵 Live Setlist
 
-```sh
-npm create astro@latest -- --template minimal
+ライブセットリスト管理アプリケーション。SP303との連携を考慮したバンド用のセットリスト作成ツールです。
+
+## 🚀 機能
+
+- **シンプルな5曲セットリスト**: 曲名、SP303 PAD番号、備考を管理
+- **SP303連携**: 曲間・曲中のサンプラー使用箇所を詳細に記録
+- **リアルタイム表示**: マークダウンファイルを編集すると即座にブラウザに反映
+- **美しいUI**: モダンで見やすいデザイン
+
+## 🎧 SP303対応
+
+- **PAD番号管理**: 1-4のPAD番号で整理
+- **使用パターン**: 曲中再生、曲前再生、途中から再生など
+- **詳細な指示**: MCのタイミングやチューニング時間も考慮
+
+## 🧞 コマンド
+
+| コマンド | アクション |
+| :------- | :--------- |
+| `npm install` | 依存関係をインストール |
+| `npm run dev` | ローカル開発サーバーを起動 (`localhost:4321`) |
+| `npm run build` | 本番用サイトをビルド (`./dist/`) |
+| `npm run preview` | ビルドをローカルでプレビュー |
+
+## 📁 プロジェクト構造
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
 ├── src/
 │   └── pages/
-│       └── index.astro
-└── package.json
+│       ├── index.astro      # メインページ
+│       └── live_setlist.md  # セットリストデータ
+├── package.json
+└── README.md
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🎯 使い方
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. `live_setlist.md`を編集してセットリストを更新
+2. ブラウザで`http://localhost:4321`にアクセス
+3. リアルタイムで変更が反映される
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 📝 ライセンス
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+MIT License
