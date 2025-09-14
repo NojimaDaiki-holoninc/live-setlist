@@ -1,0 +1,119 @@
+---
+import { readFile } from 'fs/promises';
+import { marked } from 'marked';
+
+// 歌詞のマークダウンコンテンツ
+const lyricsContent = `# 札幌
+
+## 歌詞
+
+ふいに鳴るドアの前で
+名前さえ忘れてた
+眠れない夜の懶耳（らいに）
+聴こえたふりをしてた
+気づけないことが多くて
+覚えたふりをしていた
+
+もうどうだっていい
+どうしようもないことで
+何度も思い返す
+沈み込んだ記憶
+
+――
+
+言えなくなった本音
+消えかけた空にほどけた
+
+あと少しで、あと少しで、もうすこし
+
+現実を話した
+
+揺れる影法師
+
+ずれた答えを並べ
+問いかけを鍵にして
+歯車が軋んで
+光の粒が纏う
+
+もし届くなら
+暗闇さえ抱きしめ
+明日へ連れて行きたいのに
+ただ　音もなく　叫ぶ姿を遠くに見てる
+
+---
+
+[セットリストに戻る](/)
+`;
+
+const htmlContent = marked(lyricsContent);
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>札幌 - 歌詞</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .lyrics {
+            font-size: 1.1em;
+            line-height: 2;
+            white-space: pre-line;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .back-link:hover {
+            background: #2980b9;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div set:html={htmlContent}></div>
+    </div>
+</body>
+</html>

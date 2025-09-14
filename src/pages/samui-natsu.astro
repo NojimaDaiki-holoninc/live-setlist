@@ -1,0 +1,137 @@
+---
+import { readFile } from 'fs/promises';
+import { marked } from 'marked';
+
+// 歌詞のマークダウンコンテンツ
+const lyricsContent = `# 寒い夏の週末【ラフ】
+
+## 歌詞
+
+### 1st verse
+夕闇が佇んだ
+風景画の路面を削り取る
+
+### Chorus
+君のせいなんて言われても（言い訳ばかりして）
+
+小癪垂れて
+（不確かなまま）
+
+ずれてないかを
+
+確かめてみる
+
+### 2nd verse
+夕暮れを撫でたのは
+何もない、自転車軋む音
+
+### 2nd Chorus
+君のせいなんて言われても（言い訳ばかりして）
+
+小癪垂れて
+（また間違うなら）
+
+元になれたなら
+
+雑念さえも愛でていたいのに
+
+### bridge
+雑多な言葉を
+
+吐き散らしてみて
+
+真っ赤な嘘をつく
+
+どうすればいい？どうすれば
+
+### outro
+実は驚いていた
+
+これが現実なのか
+
+不確かだがまだ
+
+道はまだ続く
+
+---
+
+[セットリストに戻る](/)
+`;
+
+const htmlContent = marked(lyricsContent);
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寒い夏の週末 - 歌詞</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #e74c3c;
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+        .lyrics {
+            font-size: 1.1em;
+            line-height: 2;
+            white-space: pre-line;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .back-link:hover {
+            background: #2980b9;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #e74c3c, #2ecc71);
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div set:html={htmlContent}></div>
+    </div>
+</body>
+</html>
